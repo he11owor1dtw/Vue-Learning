@@ -1,7 +1,20 @@
 const app = Vue.createApp({
   data() {
     return {
-      todos: ["吃飯","睡覺","打遊戲"]
+      todos: [
+        {
+          content: "吃飯",
+          complete: true,
+        },
+        {
+          content: "睡覺",
+          complete: true,
+        },
+        {
+          content: "打遊戲",
+          complete: false,
+        },
+      ],
     };
   },
 });

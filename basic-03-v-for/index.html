@@ -10,7 +10,10 @@
   <body>
     <div id="app">
       <ul>
-        <li v-for="(todo,index) in todos">{{index+1}}. {{ todo }}</li>
+        <li v-for="(todo,index) in todos">
+          <input type="checkbox" :checked="todo.complete" />
+          {{todo.content}}
+        </li>
       </ul>
     </div>
     <script src="./index.js"></script>
