@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./lib/vue.global.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Vue V-for</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <li v-for="(todo,index) in todos">{{index+1}}. {{ todo }}</li>
+      </ul>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
