@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./lib/vue.global.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Vue V-for</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- v-if 範例 -->
+      <p v-if="books.length === 0">目前沒有任何書籍</p>
+      <h2 v-else-if="books.length === 1">{{ books[0] }}</h2>
+      <ul v-else>
+        <li v-for="book in books">{{ book }}</li>
+      </ul>
+
+      <!-- v-show 範例 會渲染標籤 但以 display:none 的形式存在-->
+      <p v-show="books.length===0">目前沒有任何書籍</p>
+      <ul v-show="books.length>0">
+        <li v-for="book in books">{{book}}</li>
+      </ul>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
