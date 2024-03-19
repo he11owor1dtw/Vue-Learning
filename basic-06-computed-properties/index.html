@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./lib/vue.global.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Vue 計算屬性</title>
+  </head>
+  <body>
+    <div id="app">
+      <div class="question">
+        <p>Q：Vue 是一個什麼樣的框架？</p>
+        <p v-show="showAnswer" class="answer">
+          A：Vue 是一套用於建構用戶介面的漸進式框架。
+        </p>
+        <button @click="showAnswer=!showAnswer">{{label}}答案</button>
+      </div>
+    </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
