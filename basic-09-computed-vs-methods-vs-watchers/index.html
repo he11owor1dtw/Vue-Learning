@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="./lib/vue.global.js"></script>
+  <link rel="stylesheet" href="./style.css" />
+  <title>Vue 計算屬性和方法的區別</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- computed -->
+    <ul>
+      <!-- <li v-for="vueBlog in vueBlogs">{{vueBlog}}</li> -->
+    </ul>
+    <!-- methods -->
+    <ul>
+      <li v-for="vueBlog in getVueBlogs(1)">{{vueBlog}}</li>
+      <li v-for="vueBlog in getVueBlogs(2)">{{vueBlog}}</li>
+      <li v-for="vueBlog in getVueBlogs(3)">{{vueBlog}}</li>
+      <!-- 抓取 blogPosts 陣列中含有 1,2,3 個 "Vue" 字串的資料並顯示在畫面上 -->
+    </ul>
+    <button @click="counter+=1">計數器{{counter}}</button>
+  </div>
+
+  <!-- 1. 計算屬性適合做簡單的操作 -->
+  <!-- 2. 計算屬性結果會緩存，只有在使用到的 Data 屬性有變化時才會重新計算，其他情況會直接返回計算結果，以提高效率-->
+  <!-- 3. 計算屬性可以直接在 HTML 中，像 Data 中的屬性一樣使用 -->
+  <!-- 4. 方法適合做複雜的操作 -->
+  <!-- 5. 方法通常做為事件監聽或者公共事務邏輯 -->
+  <!-- 6. 方法可以當作普通 JS 函數使用 -->
+
+  <script src="./index.js"></script>
+</body>
+
+</html>
