@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="lib/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>Vue 計算屬性和監聽器的區別</title>
+</head>
+
+<body>
+  <div id="app">
+    <!-- computed 計算屬性 -->
+    <ul>
+      <li v-for="blog in blogPosts">{{blog}}</li>
+      <h1>共{{ count }}篇blog</h1>
+      <button @click="newBlog='Vue 3.x 全局攻略'">增加一篇blog</button>
+      {{newBlog}}
+    </ul>
+  </div>
+  <!-- 1. 計算屬性適合做簡單的操作 -->
+  <!-- 2. 計算屬性結果會緩存，只有在使用到的 Data 屬性有變化時才會重新計算，其他情況會直接返回計算結果，以提高效率-->
+  <!-- 3. 計算屬性可以直接在 HTML 中，像 Data 中的屬性一樣使用 -->
+  <!-- 4. 方法適合做複雜的操作 -->
+  <!-- 5. 方法通常做為事件監聽或者公共事務邏輯 -->
+  <!-- 6. 方法可以當作普通 JS 函數使用 -->
+  <script src=" ./index.js"></script>
+</body>
+
+</html>
