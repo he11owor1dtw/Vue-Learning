@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="lib/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>Vue 表單數據處理</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="input-field">
+      <label for="username">用戶名：</label>
+      <input type="text" id="username" @input="handleInput">
+    </div>
+    <div class="result">
+      <p>您輸入的用戶名是：{{ username }}</p>
+    </div>
+  </div>
+  <!-- 1. 給 input 添加 @input 事件 -->
+  <!-- 2. 在 input 事件監聽中，修改 data 屬性 -->
+  <script src="index.js"></script>
+</body>
+
+</html>
