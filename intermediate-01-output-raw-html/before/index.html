@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <script src="lib/vue.global.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <title>Vue 進階 v-html：在模板中輸出原始的 HTML 代碼</title>
+  </head>
+  <body>
+    <div id="app">
+      <article v-html="content"></article>
+      <!-- 輸出：這是一段代碼 -->
+      <!-- <article>{{ content }}</article> -->
+      <!-- 輸出：<p>這是一段<span style="color: hsl(0, 80%, 70%);">HTML</span>代碼</p> -->
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
