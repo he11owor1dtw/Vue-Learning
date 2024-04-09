@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="lib/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>根據條件添加或删除 class 樣式</title>
+</head>
+
+<body>
+  <div id="app">
+    <p :class="[textClass, stateClass,{hide:isHidden}]">這是一個段落</p>
+    <button @click="isHidden = !isHidden">切換狀態</button>
+  </div>
+  <!-- 直接用 v-bind 綁定 -->
+  <!-- 可以綁定單個 class -->
+  <!-- 可以用數組綁定多個 class -->
+  <!-- 可以用對象obj，根據條件添加/移除 class -->
+  <script src="index.js"></script>
+</body>
+
+</html>
