@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="lib/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>在 inline-style 行內樣式中綁定 data 數據</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <p :style="pStyle">這是一個段落</p>
+      <button class="btn increase" @click="fontSize += 1">字體增大</button>
+      <button class="btn decrease" @click="fontSize -= 1">字體縮小</button>
+    </div>
+  </div>
+  <!-- 直接使用 v-bind 綁定 -->
+  <!-- 也可以綁定計算屬性、方法等 -->
+  <script src="index.js"></script>
+</body>
+
+</html>
