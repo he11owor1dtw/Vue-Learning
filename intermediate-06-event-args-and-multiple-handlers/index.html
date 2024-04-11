@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="lib/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>事件傳遞參數與多事件處理函數</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <ul>
+        <li v-for="todo in todos" :key="todo.id" @click="handleClick(todo.id, $event), showContent(todo.content)">
+          {{todo.content}}
+        </li>
+        <!-- 事件處理函數可以透過小括號()將參數傳遞進去 -->
+        <!-- $event 可以訪問並傳遞原生 JS DOM 事件 -->
+        <!-- 可註冊多個事件處理函數，須用逗號隔開，並須使用調用的形式，不能省略() -->
+      </ul>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
