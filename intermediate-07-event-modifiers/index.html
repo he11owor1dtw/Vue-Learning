@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="lib/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>事件相關的修飾符</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <ul>
+        <a href="https://he11owor1dtw.github.io/" @click.prevent>點擊跳轉</a>
+        <li>.prevent，有如在方法上使用 event.preventDefault() 來阻止冒泡事件。</li>
+      </ul>
+      <ul @click="handleUlClick">
+        <li @click="handleLiClick">1</li>
+        <li>點擊1，li 元素先調用，後調用 ul</li>
+      </ul>
+      <ul @click="handleUlClick">
+        <li @click.stop="handleLiClick">1</li>
+        <li>.stop，阻止原先綁定的指令繼續傳播回其他元素，只調用自身 li 元素<br>所以 alert 1</li>
+      </ul>
+      <ul @click.capture="handleUlClick">
+        <li @click="handleLiClick">1</li>
+        <li>.capture，與 .stop 概念相反，先從最高層開始往下執行，<br>所以點擊 1 會先 被設置 .capture 的 ul 處理，0 > 1</li>
+      </ul>
+      <ul @click.self="handleUlClick">
+        <li @click="handleLiClick">1</li>
+        <li>.self 只執行自己元素上的事件，所以點擊 1 只 alert 1</li>
+      </ul>
+      <ul @click.once="handleUlClick">
+        <li @click="handleLiClick">1</li>
+        <li>.once 只執行一次，ul 區塊只 alert 0 一次</li>
+      </ul>
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
