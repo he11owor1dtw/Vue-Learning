@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="lib/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>處理鍵盤、按鍵的相關修飾符</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <ul @mousedown.right="comments.reverse()">
+        <!-- 在 ul 區域點擊右鍵，內容排序倒轉 -->
+        <li v-for="content in comments">{{ content }}</li>
+      </ul>
+      <input type="text" v-model="comment" @keyup.ctrl.enter.exact="addComment" />
+      <!-- 不加 .excat，倘若按住 ctrl+alt+enter，也會送出 addComment-->
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
