@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="lib/vue.global.js"></script>
+  <link rel="stylesheet" href="style.css" />
+  <title>表單輸入相關的修飾符</title>
+</head>
+
+<body>
+  <div id="app">
+    <div>
+      <input type="text" v-model.lazy.trim="username" />
+      <p>{{ username }}</p>
+      <!-- .lazy 將 @input 轉為 @change 的事件監聽 -->
+      <!-- .trim 去除首尾空格 -->
+
+      <input type="text" v-model.number="year" />
+      <p>{{ typeof year }}</p>
+      <!-- type 為 text，默認類型為字串，增加 .number 後轉換為數字類型 -->
+      <!-- <input type="number" v-model="year"> 效果等同增加 .number -->
+    </div>
+  </div>
+  <script src="index.js"></script>
+</body>
+
+</html>
