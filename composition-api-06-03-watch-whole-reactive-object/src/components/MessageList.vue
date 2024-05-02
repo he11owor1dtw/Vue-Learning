@@ -33,22 +33,25 @@ export default {
       },
     });
 
-    // 箭頭函數返回的是一個淺拷貝（spread operator {...}）options.value 的值
-    // 這樣做的目的是在監視 options.value 的整體變化時，也能監視其子屬性或嵌套對象的變化
-    // 淺拷貝只會複製頂層屬性，把引用傳遞給新的對象，因此 consol.log 中看不到點擊修改用戶後的結果
-    watch(() => ({ ...options.value }), (newVal, oldVal) => {
-      console.log(newVal, oldVal);
-    });
+    // without deep
+    // 比較的是引用，所以不會生效，陣列也是一樣
+    // watch(
+    //   () => options.value,
+    //   (newVal, oldVal) => {
+    //     console.log(newVal, oldVal);
+    //   }
+    // );
 
-    // 此為監視 options.value 的深度拷貝
-    // JSON.parse(JSON.stringify(options.value))：這是一種常用的方法來對對象進行深度拷貝
-    // 首先將對象 options.value 轉換為 JSON 字符串，然後再將 JSON 字符串解析回對象
-    // 這種方法可以創建一個新的對象，確保這個對象與 options.value 沒有引用關係
-    watch(() => JSON.parse(JSON.stringify(options.value)), (newVal, oldVal) => {
-      console.log(newVal, oldVal, newVal === oldVal);
-    });
+    // with deep true，可以比對對象的屬性
+    watch(
+      () => options.value,
+      (newVal, oldVal) => {
+        console.log(newVal, oldVal, newVal === oldVal); // 相同的引用
+      },
+      { deep: true }  // 如果希望當物件內任一屬性改變，都會觸發 watch 回呼函式，需開啟深度監視 { deep:true }。
+    );                // 加上 { deep: true } 之後，無論換掉物件內的屬性，還是一整個物件重新賦值，
+                      // watch 都能監測到，並且觸發回呼函式。
 
-    // 上方代碼使用 Vue 3 的 composition API 監視 options.value 數據的變化，並在其發生變化時記錄新的值和舊的值
     return { messages, options };
   },
 };
